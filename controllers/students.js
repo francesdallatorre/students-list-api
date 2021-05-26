@@ -27,16 +27,6 @@ STUDENTS.post('/', (req, res) => {
 })
 // curl -X PUT -H "Content-Type: application/json" -d '{"firstName":"I updated this", "lastName": "dallatorre"}' 'http://localhost:3003/students/604fb91a6a38ddb24102a502'
 
-// Update
-STUDENTS.put('/:id', (req, res) => {
-    Student.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedStudent) => {
-        if (err) {
-            res.status(400).json({ error: err.message });
-        }
-
-        res.status(200).json(updatedStudent);
-    })
-});
 
 // curl -X DELETE 'http://localhost:3003/students/604fbaa2f60d3cb2f955b5ce'
 // Delete 
