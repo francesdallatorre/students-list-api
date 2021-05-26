@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
-const studentsController = require('./controllers/students')
+const studentsController = require('./controllers/students.js')
 const APP = express()
 const PORT = process.env.PORT || 3003;
 const DBNAME = 'students'
@@ -15,7 +15,7 @@ const db = mongoose.connection;
 
 const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost:27017/${DBNAME}`
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
