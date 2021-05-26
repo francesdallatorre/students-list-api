@@ -2,10 +2,10 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
-const studentsController = require('./controllers/students.js')
+const studentsController = require('./controllers/students')
 const APP = express()
 const PORT = process.env.PORT || 3003;
-const DBNAME = 'students'
+const DBNAME = 'students';
 const db = mongoose.connection;
 
 // mongoose.connect(`mongodb://localhost:27017/${DBNAME}`, { useNewUrlParser: true });
@@ -15,7 +15,7 @@ const db = mongoose.connection;
 
 const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost:27017/${DBNAME}`
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -28,7 +28,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 db.on('open', () => { });
 
-const whitelist = ['http://localhost:3000', 'https://students-list-api.herokuapp.com']
+const whitelist = ['http://localhost:3000', 'https://students-list-frontend.herokuapp.com']
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
