@@ -2,8 +2,7 @@
   "name": "students_server",
   "version": "1.0.0",
   "engines": {
-    "node": "15.6.0",
-    "npm": "7.4.0"
+    "node": "15.6.0"
   },
   "description": "",
   "main": "server.js",
@@ -11,6 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
